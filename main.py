@@ -2,7 +2,6 @@ from flask   import Flask, Response, render_template,request, send_from_director
 from werkzeug.utils import secure_filename
 import  os
 import  time
-
 from pdf_inter import GetPdf
 
 app = Flask(__name__)

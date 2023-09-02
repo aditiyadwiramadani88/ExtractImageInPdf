@@ -5,31 +5,59 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <title> Extrack Pdf  </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <title> Extrack Pdf </title>
 </head>
-
 <body>
-{% with messages = get_flashed_messages() %}
-  {% if messages %}
- {% for message in messages %}
-    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-      {{ message }}
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="mx-auto mt-4">
+                <h3 class="fw-bold text-center">Extract Image Pdf</h3>
+            </div>
+        </div>
     </div>
-    {% endfor %}
+</nav>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-warning alert-dismissible fade show mx-4 w-75" role="alert">
+    {{ message }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endfor %}
 {% endif %}
 {% endwith %}
 
 <div class="container-fluid">
+
+    <div class="my-4 mx-auto">
+        <p class="text-center">With Eassay Extract image in pdf With a few second</p>
+    </div>
     <form method="post" enctype="multipart/form-data">
-        <div class="mb-3">
-    <label for="files" class="form-label">Pdf File</label>
-    <input type="file" name="file" class="form-control" id="files" aria-describedby="emailHelp">
-  </div>
-        <button class="btn btn-primary" type="submit">Submit</button>
+        <div class="mb-3 mx-auto text-center my-4">
+            <button type="button" class="btn btn-danger w-50 my-4 rounded-4 py-2" id="files-botton">Pilih File</button>
+            <input type="file" name="file" class="form-control visually-hidden" id="files" aria-describedby="emailHelp">
+            <button class="visually-hidden" id="submit"></button>
+        </div>
     </form>
 </div>
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+
+<script>
+     const files = document.querySelector('#files')
+     const submit = document.querySelector('#submit')
+     document.querySelector('#files-botton').addEventListener('click', () => {
+     files.click()
+     })
+files.addEventListener('change', (e) => {
+            submit.click()
+     })
+
+</script>
 </body>
 </html>
